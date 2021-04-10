@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Train+One&display=swap');
+
+/*
+    © 2021-2022, LukeDev
+*/
+
+html { 
+    background: url(assets/vaporwave.gif) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    scroll-behavior: smooth;
+}
+
+.main {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.main h1 {
+    font-family: 'Train One', cursive;
+}
+
+.main a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.scroll-down {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 90%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 50%;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.scroll-down a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 25px;
+    //color: white;
+}
