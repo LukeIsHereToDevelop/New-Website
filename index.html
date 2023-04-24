@@ -10,35 +10,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://lukedev.tk">
+    <meta property="og:url" content="https://luke.is-a.dev">
     <meta property="og:title" content="LukeDev">
-    <meta property="og:description" content="A developer guy.">
-    <meta property="og:image" content="https://lukedev.site/assets/animated_avatar.gif">
+    <meta property="og:description" content="Full-stack developer from Italy">
+    <meta property="og:image" content="https://luke.is-a.dev/assets/new-avatar.png">
     <meta name=theme-color content="#800080">
     <title>LukeDev</title>
     <link rel="icon" href="assets/avatar.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"/>
     <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
     <div class="main">
-        <img src="assets/animated_avatar.gif" style="border-radius: 50%;" draggable="false">
+        <div class="avatar">
+            <img src="assets/new-avatar.png" style="border-radius: 50%;" width="128" height="128" draggable="false">
+            <span class="status offline"></span>
+        </div>
         <h1>LukeDev</h1>
-        <a class="fab fa-youtube" href="https://www.youtube.com/channel/UClLBdgWDV7vyX3tjZz0MUoQ" target="_blank" rel="noopener noreferrer"></a>
-        <a class="fab fa-github" href="https://github.com/LukeIsHereToDevelop" target="_blank" rel="noopener noreferrer"></a>
-        <a class="fab fa-discord" href="https://dsc.bio/lukebtw" target="_blank" rel="noopener noreferrer"></a>
-        <a class="fab fa-telegram-plane" href="https://t.me/LukeBTW" target="_blank" rel="noopener noreferrer"></a>
-        <a class="fas fa-envelope" href="mailto:lukeisheretodevelop@pm.me"></a>
+        <p>Full-stack developer<br>from Italy</p>
+        <div class="presence">
+            <img class="image" src="https://i.scdn.co/image/ab67616d0000b27313834c1fc39cf73a8bf89f28" width="64" height="64">
+            <p class="name">N/A</p>
+        </div>
+        <div class="icons">
+            <a class="icon fab fa-github" href="https://github.com/LukeIsHereToDevelop" target="_blank" rel="noopener noreferrer"></a>
+            <a class="icon fab fa-discord" href="https://dsc.bio/lukebtw" target="_blank" rel="noopener noreferrer"></a>
+            <a class="icon fab fa-telegram-plane" href="https://t.me/LukeBTW" target="_blank" rel="noopener noreferrer"></a>
+            <a class="icon fas fa-envelope" href="mailto:lukeisheretodevelop@pm.me"></a>
+        </div>
     </div>
     <script>
         // Animation
-        ScrollReveal().reveal('.main', { delay: 1000 });
-
-        // Parallax
-        //var scene = document.getElementById('scene');
-        //var parallaxInstance = new Parallax(scene);
+        ScrollReveal().reveal('.main', { delay: 500 });
     </script>
 </body>
 </html>
