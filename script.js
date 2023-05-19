@@ -34,6 +34,8 @@ lanyard({
         const presence = document.getElementsByClassName("presence")[0];
 
         if (json.spotify) {
+            presence.style.display = null;
+
             let image = document.getElementsByClassName("image")[0];
             let name = document.getElementsByClassName("name")[0];
 
@@ -42,9 +44,9 @@ lanyard({
             name.innerHTML = `${json.spotify.song.length > 12 ? json.spotify.song.slice(0, 9) + "..." : json.spotify.song}<br>${json.spotify.artist.length > 12 ? json.spotify.artist.slice(0, 9) + "..." : json.spotify.artist}`;
         }
         else if (json.activities.find((el) => el.application_id === "810516608442695700")) {
-            const activity = json.activities.find((el) => el.application_id === "810516608442695700");
+            presence.style.display = null;
 
-            console.log(activity);
+            const activity = json.activities.find((el) => el.application_id === "810516608442695700");
             
             let image = document.getElementsByClassName("image")[0];
             let name = document.getElementsByClassName("name")[0];
