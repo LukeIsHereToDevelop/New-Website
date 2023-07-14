@@ -14,6 +14,8 @@ lanyard({
     userId: "1095455197121237103",
     socket: true,
     onPresenceUpdate: (json) => {
+        console.log(json);
+
         const status = document.getElementsByClassName("status")[0];
 
         switch (json.discord_status) {
@@ -43,10 +45,10 @@ lanyard({
             image.src = json.spotify.album_art_url;
             name.innerHTML = `${json.spotify.song.length > 12 ? json.spotify.song.slice(0, 9) + "..." : json.spotify.song}<br>${json.spotify.artist.length > 12 ? json.spotify.artist.slice(0, 9) + "..." : json.spotify.artist}`;
         }
-        else if (json.activities.find((el) => el.application_id === "810516608442695700")) {
+        else if (json.activities.find((el) => el.application_id === "782685898163617802")) {
             presence.style.display = null;
 
-            const activity = json.activities.find((el) => el.application_id === "810516608442695700");
+            const activity = json.activities.find((el) => el.application_id === "782685898163617802");
             
             let image = document.getElementsByClassName("image")[0];
             let name = document.getElementsByClassName("name")[0];
