@@ -17,21 +17,8 @@ lanyard({
         console.log(json);
 
         const status = document.getElementsByClassName("status")[0];
-
-        switch (json.discord_status) {
-            case "online":
-                status.classList.replace(status.classList.item(1), "online");
-                break;
-            case "dnd":
-                status.classList.replace(status.classList.item(1), "dnd");
-                break;
-            case "idle":
-                status.classList.replace(status.classList.item(1), "idle");
-                break;
-            case "offline":
-                status.classList.replace(status.classList.item(1), "offline");
-                break;
-        };
+        
+        status.classList.replace(status.classList.item(1), json.discord_status);
 
         const presence = document.getElementsByClassName("presence")[0];
 
