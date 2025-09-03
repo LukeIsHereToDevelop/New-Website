@@ -18,12 +18,14 @@ html {
     font-family: 'Train One', cursive;
     text-align: center;
     position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
     padding: 30px;
     background: rgba( 255, 255, 255, 0.25 );
+    opacity: 0;
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 4px );
@@ -34,6 +36,10 @@ html {
     -ms-user-select: none;
     -o-user-select: none;
     user-select: none;
+    width: fit-content;
+    height: fit-content;
+    transform: scale(0.8);
+    animation: cardAppear 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
 
 .avatar {
@@ -132,4 +138,15 @@ html {
 .main a {
     text-decoration: none;
     color: inherit;
+}
+
+@keyframes cardAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
