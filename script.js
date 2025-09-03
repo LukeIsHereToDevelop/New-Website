@@ -2,6 +2,25 @@
     © 2021-2025, LukeDev
 */
 
+// Utilities
+function extractProjectName(text) {
+    const m = text.match(/^In\s+(.+)\s*-\s*/);
+    return m ? m[1].trim() : null;
+}
+
+function extractProjectFile(text) {
+    const m = text.match(/([^\/\\:\s]+)(?=:\d+:\d+)/);
+    return m ? m[1] : null;
+}
+
+function extractProjectImage(text) {
+    return `https://${text.split("https/")[1]}`;
+}
+
+function shortenText(text) {
+    return text.length > 12 ? text.slice(0, 9) + "..." : text;
+}
+
 // Song
 window.addEventListener("load", () => {
     const audio = new Audio("assets/resonance slowed.mp3");
@@ -32,21 +51,24 @@ lanyard({
             presence.onclick = () => window.open(`https://open.spotify.com/track/${json.spotify.track_id}`);
             image.src = json.spotify.album_art_url;
             action.textContent = "Listening to...";
-            details.textContent = `${json.spotify.song.length > 12 ? json.spotify.song.slice(0, 9) + "..." : json.spotify.song}`;
-            state.textContent = `${json.spotify.artist.length > 12 ? json.spotify.artist.slice(0, 9) + "..." : json.spotify.artist}`;
+            details.textContent = shortenText(json.spotify.song);
+            state.textContent = shortenText(json.spotify.artist);
         }
         else if (json.activities.find((el) => el.application_id === "782685898163617802")) {
             presence.classList.remove("hidden");
 
             const activity = json.activities.find((el) => el.application_id === "782685898163617802");
-            
+
             let image = document.getElementsByClassName("image")[0];
-            let name = document.getElementsByClassName("name")[0];
+            let action = document.getElementsByClassName("action")[0];
+            let details = document.getElementsByClassName("details")[0];
+            let state = document.getElementsByClassName("state")[0];
 
-            if (activity.details.includes("Not in a file")) name.innerHTML = `VSCode<br>No file`;
-            else name.innerHTML = `VSCode<br>${(activity.state.split(" ")[2]).split(":")[0]}`;
-
-            image.src = `https://${activity.assets.large_image.split("https/")[1]}`;
+            presence.onclick = () => window.open(`https://github.com/LukeIsHereToDevelop/${extractProjectName(activity.details)}`);
+            action.textContent = "Coding...";
+            details.textContent = shortenText(extractProjectName(activity.details));
+            state.textContent = shortenText(extractProjectFile(activity.state));
+            image.src = extractProjectImage(activity.assets.large_image);
         }
         else {
             presence.classList.add("hidden");
