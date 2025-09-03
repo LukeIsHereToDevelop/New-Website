@@ -17,7 +17,6 @@ lanyard({
         console.log(json);
 
         const status = document.getElementsByClassName("status")[0];
-        
         status.classList.replace(status.classList.item(1), json.discord_status);
 
         const presence = document.getElementsByClassName("presence")[0];
@@ -26,11 +25,15 @@ lanyard({
             presence.style.display = null;
 
             let image = document.getElementsByClassName("image")[0];
-            let name = document.getElementsByClassName("name")[0];
+            let action = document.getElementsByClassName("action")[0];
+            let details = document.getElementsByClassName("details")[0];
+            let state = document.getElementsByClassName("state")[0];
 
             presence.onclick = () => window.open(`https://open.spotify.com/track/${json.spotify.track_id}`);
             image.src = json.spotify.album_art_url;
-            name.innerHTML = `${json.spotify.song.length > 12 ? json.spotify.song.slice(0, 9) + "..." : json.spotify.song}<br>${json.spotify.artist.length > 12 ? json.spotify.artist.slice(0, 9) + "..." : json.spotify.artist}`;
+            action.textContent = "Listening to...";
+            details.textContent = `${json.spotify.song.length > 12 ? json.spotify.song.slice(0, 9) + "..." : json.spotify.song}`;
+            state.textContent = `${json.spotify.artist.length > 12 ? json.spotify.artist.slice(0, 9) + "..." : json.spotify.artist}`;
         }
         else if (json.activities.find((el) => el.application_id === "782685898163617802")) {
             presence.style.display = null;
