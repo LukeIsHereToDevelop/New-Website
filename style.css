@@ -96,7 +96,15 @@ html {
 }
 
 .presence {
+    max-height: 200px;
     transition: 0.5s;
+    opacity: 1;
+    transform: translateY(0);
+    transition: max-height 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.4s, transform 0.5s;
+}
+
+.presence:not(.hidden) {
+    animation: presenceDropSpace 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .presence:hover {
@@ -140,6 +148,13 @@ html {
     color: inherit;
 }
 
+.hidden {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.4s;
+}
+
 @keyframes cardAppear {
     0% {
         opacity: 0;
@@ -148,5 +163,18 @@ html {
     100% {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+@keyframes presenceDropSpace {
+    0% {
+        opacity: 0;
+        transform: translateY(-40px);
+        max-height: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 200px;
     }
 }

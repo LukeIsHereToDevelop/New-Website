@@ -22,7 +22,7 @@ lanyard({
         const presence = document.getElementsByClassName("presence")[0];
 
         if (json.spotify) {
-            presence.style.display = null;
+            presence.classList.remove("hidden");
 
             let image = document.getElementsByClassName("image")[0];
             let action = document.getElementsByClassName("action")[0];
@@ -36,7 +36,7 @@ lanyard({
             state.textContent = `${json.spotify.artist.length > 12 ? json.spotify.artist.slice(0, 9) + "..." : json.spotify.artist}`;
         }
         else if (json.activities.find((el) => el.application_id === "782685898163617802")) {
-            presence.style.display = null;
+            presence.classList.remove("hidden");
 
             const activity = json.activities.find((el) => el.application_id === "782685898163617802");
             
@@ -49,8 +49,7 @@ lanyard({
             image.src = `https://${activity.assets.large_image.split("https/")[1]}`;
         }
         else {
-            let presence = document.getElementsByClassName("presence")[0];
-            presence.style.display = "none";
+            presence.classList.add("hidden");
         }
     }
 });
