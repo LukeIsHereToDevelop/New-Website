@@ -33,8 +33,6 @@ lanyard({
     userId: "1095455197121237103",
     socket: true,
     onPresenceUpdate: (json) => {
-        console.log(json);
-
         const status = document.getElementsByClassName("status")[0];
         status.classList.replace(status.classList.item(1), json.discord_status);
 
