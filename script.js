@@ -17,9 +17,9 @@ function extractProjectImage(text) {
     return `https://${text.split("https/")[1]}`;
 }
 
-function shortenText(text) {
+/*function shortenText(text) {
     return text.length > 12 ? text.slice(0, 9) + "..." : text;
-}
+}*/
 
 // Song
 window.addEventListener("load", () => {
@@ -51,8 +51,8 @@ lanyard({
             presence.onclick = () => window.open(`https://open.spotify.com/track/${json.spotify.track_id}`);
             image.src = json.spotify.album_art_url;
             action.textContent = "Listening to...";
-            details.textContent = shortenText(json.spotify.song);
-            state.textContent = shortenText(json.spotify.artist);
+            details.textContent = json.spotify.song;
+            state.textContent = json.spotify.artist;
         }
         else if (json.activities.find((el) => el.application_id === "782685898163617802")) {
             presence.classList.remove("hidden");
@@ -66,8 +66,8 @@ lanyard({
 
             presence.onclick = () => window.open(`https://github.com/LukeIsHereToDevelop/${extractProjectName(activity.details)}`);
             action.textContent = "Coding...";
-            details.textContent = shortenText(extractProjectName(activity.details));
-            state.textContent = shortenText(extractProjectFile(activity.state));
+            details.textContent = extractProjectName(activity.details);
+            state.textContent = extractProjectFile(activity.state);
             image.src = extractProjectImage(activity.assets.large_image);
         }
         else {
