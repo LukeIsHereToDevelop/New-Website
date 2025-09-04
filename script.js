@@ -33,6 +33,8 @@ lanyard({
     userId: "1095455197121237103",
     socket: true,
     onPresenceUpdate: (json) => {
+        console.log(json);
+
         const status = document.getElementsByClassName("status")[0];
         status.classList.replace(status.classList.item(1), json.discord_status);
 
@@ -53,9 +55,12 @@ lanyard({
             state.textContent = json.spotify.artist;
         }
         else if (json.activities.find((el) => el.application_id === "782685898163617802")) {
-            presence.classList.remove("hidden");
-
             const activity = json.activities.find((el) => el.application_id === "782685898163617802");
+            
+            if (activity.details.includes("Idling"))
+                presence.classList.add("hidden");
+            else
+                presence.classList.remove("hidden");
 
             let image = document.getElementsByClassName("image")[0];
             let action = document.getElementsByClassName("action")[0];
